@@ -75,6 +75,7 @@ export default {
 </script>
 
 <template>
+	<!-- <pre>tools{{ tools }}</pre> -->
 	<!-- <pre>{{ taskData.description }}</pre> -->
 	<!-- <pre>{{ taskDetail }}</pre> -->
 	<section id="task-master-form" class="w-full">
@@ -169,7 +170,7 @@ export default {
 							placeholder="........."
 							name="TaskPerMinute"
 							type="number"
-							step="0.1"
+							step="0.01"
 							v-model="taskData.TaskPerMinute"
 						/>
 					</div>
@@ -269,5 +270,5 @@ export default {
 			</div>
 		</form>
 	</section>
-	<pre>{{ taskData }}</pre>
+	<!-- <pre>{{ taskData }}</pre> -->
 </template>

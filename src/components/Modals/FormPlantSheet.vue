@@ -231,7 +231,11 @@ export default {
 			this.cropData[`${key}Conjunctions${suffix}`].splice(index, 1);
 		},
 		handlePutorPost() {
+			// const modifiedItem = [...this.cropData]
+			this.cropData.fallacyNursery = this.cropData.fallacyNursery * 0.01
+			console.log(this.cropData, '<<< crop data di handlePutorPost');
 			if (this.editFlag) {
+
 				this.putCrop(this.cropData);
 			} else if (!this.editFlag) {
 				this.postCrop(this.cropData);
@@ -334,6 +338,9 @@ export default {
 			this.cropData.PesticideConjunctions =
 				this.cropDetail.PesticideConjunctions;
 			this.cropData.status = this.cropDetail.status;
+			this.cropData.fallacyNursery = this.cropDetail.fallacyNursery * 0.01
+			this.cropData.plantPerMetre = this.cropDetail.plantPerMetre
+			this.cropData.plantsheetTaskConjunctions
 		}
 	},
 	components: { RedButton, TableRow4Colum, GreenButton, BlueButton },
@@ -663,7 +670,7 @@ export default {
 												HSS
 											</div>
 											<div
-												class="w-[15%] border border-black text-center"
+												class="w-[35%] border border-black text-center"
 											>
 												Task
 											</div>
@@ -677,15 +684,15 @@ export default {
 											v-for="(
 												el, index
 											) in cropData.plantsheetTaskConjunctions"
-											class="w-[237px] flex flex-row"
+											class="w-full flex flex-row"
 										>
 											<div
-												class="w-[21%] text-center border border-black"
+												class="w-[8%] text-center border border-black"
 											>
 												{{ index + 1 }}
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[35%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.TaskId"
@@ -705,7 +712,7 @@ export default {
 												</select>
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[15%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.ItemId"
@@ -999,7 +1006,7 @@ export default {
 					</div>
 					<div
 						id="planting-conjunction"
-						class="flex w-[50%] flex-col h-full border-t-2 border-r-2 border-b-2 border-black"
+						class="flex w-[50%] flex-col h-full border-t-2 overflow-auto border-r-2 border-b-2 border-black"
 					>
 						<div
 							class="flex justify-center bg-yellow-500 items-center border-b-2 border-black p-1"
@@ -1088,7 +1095,7 @@ export default {
 												Day
 											</div>
 											<div
-												class="w-[15%] border border-black text-center"
+												class="w-[35%] border border-black text-center"
 											>
 												Task
 											</div>
@@ -1102,15 +1109,15 @@ export default {
 											v-for="(
 												el, index
 											) in cropData.plantsheetTaskProcessingConjunctions"
-											class="w-[237px] flex flex-row"
+											class="w-full flex flex-row"
 										>
 											<div
-												class="w-[21%] text-center border border-black"
+												class="w-[8%] text-center border border-black"
 											>
 												{{ index + 1 }}
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[35%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.TaskId"
@@ -1130,7 +1137,7 @@ export default {
 												</select>
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[15%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.ItemId"
@@ -1227,7 +1234,7 @@ export default {
 												HST
 											</div>
 											<div
-												class="w-[15%] border border-black text-center"
+												class="w-[35%] border border-black text-center"
 											>
 												Task
 											</div>
@@ -1241,15 +1248,15 @@ export default {
 											v-for="(
 												el, index
 											) in cropData.plantsheetTaskPlantingConjunctions"
-											class="w-[237px] flex flex-row"
+											class="w-full flex flex-row"
 										>
 											<div
-												class="w-[21%] text-center border border-black"
+												class="w-[8%] text-center border border-black"
 											>
 												{{ index + 1 }}
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[35%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.TaskId"
@@ -1269,7 +1276,7 @@ export default {
 												</select>
 											</div>
 											<div
-												class="w-[39.5%] border border-black flex flex-col"
+												class="w-[15%] border border-black flex flex-col"
 											>
 												<select
 													v-model="el.ItemId"
