@@ -1,5 +1,5 @@
 import axios from "axios";
-export const baseUrl = "http://localhost:3000";
+export const baseUrl = "http://172.104.161.136";
 import { defineStore } from "pinia";
 
 export const useCropStore = defineStore("crop", {

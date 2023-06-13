@@ -214,7 +214,7 @@ export default {
 		},
 
 		cropAreaReady() {
-			return this.plantSchedulesDetail.CropArea.map.length > 0;
+			return this.plantSchedulesDetail?.CropArea?.map?.length > 0;
 		},
 		archive() {
 			if (this.cropDetail.arcStatus === "archived") {
