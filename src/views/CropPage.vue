@@ -181,7 +181,7 @@ export default {
 			><BlueButton :type="'button'" :text="'NEW CROP'"
 		/></RouterLink>
 	</div>
-	<div class="bg-blue-100 p-4 w-full">
+	<div class="bg-blue-100 p-4 w-full min-h-screen">
 		<div class="overflow-auto rounded-lg shadow">
 			<div class="flex flex-row justify-between items-center">
 				<div @click.prevent="localPostExport(crop)">
