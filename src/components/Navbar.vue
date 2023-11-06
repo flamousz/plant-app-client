@@ -212,7 +212,7 @@ export default {
 	<!-- <pre>ini isNotif is {{ isNotif }}</pre> -->
 	<!-- <pre>ini notificationIsNotRead is {{ notificationIsNotRead }}</pre> -->
 	<SideBar />
-	<nav class="bg-blue-200">
+	<nav class="bg-blue-200 px-4">
 		<section id="approval-section" v-if="isApprovalSection">
 			<div
 				@click.prevent="isApprovalSection = !isApprovalSection"
@@ -356,7 +356,7 @@ export default {
 				</button>
 			</div>
 		</div>
-		<div class="max-w-[1435px] mx-auto px-2 sm:px-6 lg:px-0">
+		<div class="max-w-[1435px]  mx-auto px-2 sm:px-6 lg:px-0">
 			<div class="relative flex items-center justify-between h-16">
 				<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 					<button
@@ -386,7 +386,7 @@ export default {
 					</button>
 				</div>
 				<div
-					class="flex-1 flex items-center justify-center sm:items-center sm:justify-between"
+					class="flex-1  flex items-center justify-center sm:items-center sm:justify-between"
 				>
 					<div class="flex flex-row">
 						<RouterLink
@@ -447,7 +447,7 @@ export default {
 								Log Out
 							</button>
 						</li>
-						<li v-if="!isApproveNotif">
+						<li v-if="!isApproveNotif" >
 							<button @click.prevent="isApproveNotifChanger">
 								<img
 									src="../assets/icons8-notification-48.png"

@@ -1,7 +1,7 @@
 <script>
 import { mapActions } from "pinia";
 import { useUserStore } from "../stores/user";
-import GreenButton from '../components/Buttons/GreenButton.vue'
+import GreenButton from "../components/Buttons/GreenButton.vue";
 
 export default {
 	name: "LoginPage",
@@ -10,13 +10,13 @@ export default {
 			loginData: {
 				email: "",
 				password: "",
-			}
+			},
 		};
 	},
 	methods: {
 		...mapActions(useUserStore, ["handleLogin"]),
 	},
-	components: {GreenButton}
+	components: { GreenButton },
 };
 </script>
 
@@ -24,9 +24,9 @@ export default {
 	<div
 		class="flex justify-center items-center bg-[url('../assets/homepage-wallpaper.jpg')] w-screen h-screen"
 	>
-		<div class="bg-white lg:w-[25%] lg:h-[53%] rounded-xl flex flex-col">
+		<div class="bg-[#c4e8c2] lg:w-[25%]  rounded-xl flex flex-col">
 			<div
-				class="bg-[#6bbd99] flex flex-col justify-center items-center lg:w-full rounded-t-xl lg:h-[50%]"
+				class="bg-[#6bbd99] flex flex-col justify-center items-center lg:w-full rounded-t-xl py-4"
 			>
 				<img
 					src="../assets/indo evergreen agro business.png"
@@ -36,17 +36,19 @@ export default {
 					<h1>Sign in to Plant App</h1>
 				</div>
 			</div>
-			<div class="flex flex-col lg:w-full lg:h-full bg-[#c4e8c2] rounded-b-xl">
+			<div
+				class="flex flex-col lg:w-full my-4  rounded-b-xl"
+			>
 				<form @submit.prevent="handleLogin(loginData)">
-					<div class="flex flex-col w-[100%] gap-2 lg:mt-[15%] lg:ml-[9%]">
-						<div class="flex flex-row">
+					<div class="flex flex-col px-6 pt-4 h-full w-[100%] gap-2 ">
+						<div class="flex flex-row justify-between">
 							<label
 								for="email"
 								class="flex justify-start items-center lg:w-[23%]"
 								>Email:</label
 							>
 							<input
-								class="placeholder:text-xs p-[6px] border border-gray-300 rounded-md bg-green-100"
+								class="placeholder:text-xs text-sm p-[6px] border border-gray-300 rounded-md  w-2/3"
 								placeholder="Email Address"
 								name="email"
 								type="email"
@@ -54,7 +56,7 @@ export default {
 								v-model="loginData.email"
 							/>
 						</div>
-						<div class="flex flex-row">
+						<div class="flex flex-row justify-between">
 							<label
 								for="password"
 								class="lg:w-[23%] flex justify-start items-center"
@@ -62,14 +64,14 @@ export default {
 							</label>
 							<input
 								id="password"
-								class="placeholder:text-xs p-[6px] border border-gray-300 rounded-md bg-green-100"
+								class="placeholder:text-xs p-[6px] border w-2/3 border-gray-300 rounded-md bg-green-100"
 								placeholder="Password"
 								name="password"
 								type="password"
 								v-model="loginData.password"
 							/>
 						</div>
-						<div class="flex justify-end lg:mr-[20%]">
+						<div class="flex justify-end ">
 							<GreenButton :type="'submit'" :text="'Click to Sign in'" />
 						</div>
 					</div>

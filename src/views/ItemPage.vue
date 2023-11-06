@@ -108,7 +108,7 @@ export default {
 <template>
 	<!-- <pre>{{ categories }}</pre> -->
 	<!-- <pre>{{ itemsData.category }}</pre> -->
-	<div class="bg-blue-100 p-4 w-full flex flex-col">
+	<div class="bg-blue-100 min-h-screen p-4 w-full flex flex-col">
 		<div class="z-40 fixed bottom-7 opacity-40 hover:opacity-90 right-8 flex">
 			<RouterLink to="/item/form"
 				><BlueButton :type="'button'" :text="'NEW ITEM'"
@@ -168,7 +168,7 @@ export default {
 				</tr>
 			</thead>
 			<tbody
-				class="bg-slate-100 text-center tracking-wider divide-y divide-gray-600"
+				class="bg-slate-00 text-center tracking-wider divide-y divide-gray-600"
 			>
 				<tr
 					class="whitespace-nowrap hover:bg-slate-200"
