@@ -348,6 +348,5 @@ export default {
 				</div>
 			</div>
 		</form>
-		<pre>{{ cropData }}</pre>
 	</section>
 </template>

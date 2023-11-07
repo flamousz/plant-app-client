@@ -1,35 +1,34 @@
 import { defineStore } from "pinia";
-const baseUrl = "http://localhost:3000"
-import axios from 'axios'
+const baseUrl = "http://localhost:3000";
+import axios from "axios";
 
-
-export const useCropAreaStore = defineStore('cropArea', {
-    state() {
-        return {
-            cropArea: [],
-            allpage: 0,
-            query: {
-                filter: '',
-                page: 0,
-                search: ''
-            },
-            cropAreaDetail: {},
-            editFlag: false
-        }
-    },
-    actions: {
-		async fetchAllCropArea(){
+export const useCropAreaStore = defineStore("cropArea", {
+	state() {
+		return {
+			cropArea: [],
+			allpage: 0,
+			query: {
+				filter: "",
+				page: 0,
+				search: "",
+			},
+			cropAreaDetail: {},
+			editFlag: false,
+		};
+	},
+	actions: {
+		async fetchAllCropArea() {
 			try {
-				const {data} = await axios({
+				const { data } = await axios({
 					url: `${baseUrl}/cropareas/all`,
-					method: 'GET'
-				})
-				this.cropArea = data
+					method: "GET",
+				});
+				this.cropArea = data;
 			} catch (error) {
 				console.log(error);
 			}
 		},
-        async putCropArea(val) {
+		async putCropArea(val) {
 			try {
 				const { id } = val;
 				console.log(id, "<<< ini id");
@@ -57,7 +56,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 				console.log(err);
 			}
 		},
-        async deleteCropArea(id) {
+		async deleteCropArea(id) {
 			try {
 				console.log(`item dengan id ${id} masuk ke item store`);
 				const { data } = await axios({
@@ -86,7 +85,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 				}).showToast();
 			}
 		},
-        async patchCropArea(val) {
+		async patchCropArea(val) {
 			try {
 				console.log(val, "ini data patch");
 				const { id } = val;
@@ -96,7 +95,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 					data: val,
 				});
 				this.editFlag = false;
-				this.getCropAreaById(id)
+				this.getCropAreaById(id);
 				Toastify({
 					text: data,
 					gravity: "bottom", // `top` or `bottom`
@@ -111,7 +110,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 				console.log(err);
 			}
 		},
-        async getCropAreaByIdForEdit(id) {
+		async getCropAreaByIdForEdit(id) {
 			try {
 				console.log(`masuk dengan id ${id} untuk edit`);
 				const { data } = await axios({
@@ -127,7 +126,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 				console.log(err);
 			}
 		},
-        async getCropAreaById(id) {
+		async getCropAreaById(id) {
 			try {
 				// this.editFlag = true;
 				console.log(`masuk dengan id ${id}`);
@@ -142,7 +141,7 @@ export const useCropAreaStore = defineStore('cropArea', {
 				console.log(err);
 			}
 		},
-        async postCropArea(val) {
+		async postCropArea(val) {
 			try {
 				console.log("masuk");
 				console.log(val, "val dari crop store");
@@ -172,32 +171,32 @@ export const useCropAreaStore = defineStore('cropArea', {
 				}).showToast();
 			}
 		},
-        async fetchCropArea() {
-            try {
-                let queryCropArea = this.query
+		async fetchCropArea() {
+			try {
+				let queryCropArea = this.query;
 
-                if (!queryCropArea.filter) {
-                    delete queryCropArea.filter
-                }
-                if (!queryCropArea.page) {
-                    delete queryCropArea.page
-                }
-                if (!queryCropArea.search) {
-                    delete queryCropArea.search
-                }
-                this.router.replace({name: 'cropArea', query: queryCropArea})
+				if (!queryCropArea.filter) {
+					delete queryCropArea.filter;
+				}
+				if (!queryCropArea.page) {
+					delete queryCropArea.page;
+				}
+				if (!queryCropArea.search) {
+					delete queryCropArea.search;
+				}
+				this.router.replace({ name: "cropArea", query: queryCropArea });
 
-                const {data} = await axios ({
-                    url: `${baseUrl}/cropareas`,
-                    method: 'GET',
-                    params: queryCropArea
-                })
+				const { data } = await axios({
+					url: `${baseUrl}/cropareas`,
+					method: "GET",
+					params: queryCropArea,
+				});
 
-                this.cropArea=data.rows
-                this.allPage= Math.ceil(data.count/8)
-            } catch (err) {
-                console.log(err);
-            }
-        }
-    }
-})
+				this.cropArea = data.rows;
+				this.allPage = Math.ceil(data.count / 8);
+			} catch (err) {
+				console.log(err);
+			}
+		},
+	},
+});
